@@ -145,7 +145,7 @@ class ReactDjangoFramework:
             f.write(self._get_frontend_gitignore_content()) # User needs to update content of this method
         with open(os.path.join(frontend_dir, "Dockerfile"), "w") as f: # Frontend specific Dockerfile
             f.write(self._get_frontend_dockerfile_content()) # New placeholder
-        with open(os.path.join(frontend_dir, "README.md"), "w") as f: # Frontend specific README
+        with open(os.path.join(frontend_dir, "README.md"), "w", encoding="utf-8") as f: # Frontend specific README
             f.write(self._get_frontend_readme_md_content()) # New placeholder
         with open(os.path.join(frontend_dir, "package.json"), "w") as f:
             f.write(self._get_package_json_content(project_name)) # User needs to update content of this method
@@ -220,7 +220,7 @@ class ReactDjangoFramework:
         print("Creating project configuration files...")
 
         # Create README.md
-        with open(os.path.join(project_dir, "README.md"), "w") as f:
+        with open(os.path.join(project_dir, "README.md"), "w", encoding="utf-8") as f:
             f.write(self._get_readme_content(project_name)) # Use the updated README
 
         # Create .gitignore (Root level)
