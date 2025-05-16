@@ -43,6 +43,16 @@ myproject/
 └── README.md
 ```
 
+
+
+### Generate a Temp 
+
+```bash
+ python rdframework.py create temp                    
+```
+
+This will create a new React component in the `frontend/app/components` directory.
+
 ### Generate a New Component
 
 ```bash
