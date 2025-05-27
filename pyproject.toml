@@ -30,8 +30,9 @@ classifiers = [
 ]
 # No external runtime dependencies are strictly needed for this script,
 # as it uses built-in 'subprocess', 'sys', 'os', 'shutil', 'pathlib'.
-# dependencies = []
-
+dependencies = [
+    "questionary>=1.10.0,<2.0.0" # Add this line
+]
 [project.urls]
 "Homepage" = "https://github.com/your-username/react-tango-creator" # CHANGE THIS
 "Bug Tracker" = "https://github.com/your-username/react-tango-creator/issues" # CHANGE THIS
