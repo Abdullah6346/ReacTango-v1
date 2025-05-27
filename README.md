@@ -1,126 +1,40 @@
-# React-Django Framework
+# React Tango Creator (`create-react-tango`)
 
-A framework for creating modern web applications with React (TanStack Router) and Django.
+[![PyPI version](https://img.shields.io/pypi/v/react-tango-creator.svg)](https://pypi.org/project/react-tango-creator/)
+[![Python Version](https://img.shields.io/pypi/pyversions/react-tango-creator.svg)](https://pypi.org/project/react-tango-creator/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<!-- Optional: Add build status, coverage, etc. if you set up CI -->
+<!-- [![Build Status](https://travis-ci.org/your-username/react-tango-creator.svg?branch=main)](https://travis-ci.org/your-username/react-tango-creator) -->
+
+`create-react-tango` is a command-line utility designed to quickly bootstrap new full-stack projects using the **ReactTangoTemplate**. This template combines a React frontend (with TanStack Router and Vite) with a Django backend, providing a modern, type-safe, and containerized development experience.
+
+This CLI tool automates the initial project setup by:
+1. Cloning the [ReactTangoTemplate](https://github.com/Abdullah6346/ReactTangoTemplate).
+2. Removing the template's Git history.
+3. Initializing a fresh Git repository for your new project.
+4. Making an initial commit with the template files, so you can start your work immediately.
 
 ## Features
 
-- React frontend with TypeScript and TanStack Router
-- Django backend with REST framework
-- PostgreSQL database
-- Docker support
-- Development and production configurations
-- CLI tool for project management
+*   **Rapid Project Scaffolding**: Create a new React + Django project in seconds.
+*   **Clean Git History**: Starts your project with a fresh Git repository, independent of the template's history.
+*   **Customizable**: Choose a specific branch of the template if needed.
+*   **Flexible**: Option to skip automatic Git initialization.
+*   **Easy to Use**: Simple command-line interface.
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+*   **Python**: Version 3.7 or higher.
+*   **pip**: Python package installer (usually comes with Python).
+*   **Git**: Version control system.
 
 ## Installation
 
-```bash
-pip install rdframework
-```
+### Option 1: From PyPI (Recommended for Users)
 
-## Usage
-
-### Create a New Project
+The easiest way to install `create-react-tango` is from the Python Package Index (PyPI):
 
 ```bash
-rdframework create myproject
-```
-
-This will create a new project with the following structure:
-
-```
-myproject/
-├── backend/           # Django backend
-│   ├── api/          # API app
-│   ├── manage.py     # Django management script
-│   └── requirements.txt
-├── frontend/         # React frontend
-│   ├── app/         # Application code
-│   ├── public/      # Static files
-│   └── package.json
-├── .env             # Environment variables
-├── .env.example     # Example environment variables
-├── docker-compose.yml
-└── README.md
-```
-
-
-
-### Generate a Temp 
-
-```bash
- python rdframework.py create temp                    
-```
-
-This will create a new React component in the `frontend/app/components` directory.
-
-### Generate a New Component
-
-```bash
-rdframework component MyComponent
-```
-
-This will create a new React component in the `frontend/app/components` directory.
-
-### Generate a New Django App
-
-```bash
-rdframework app myapp
-```
-
-This will create a new Django app in the `backend` directory.
-
-### Start Development Servers
-
-```bash
-rdframework start
-```
-
-This will start both the frontend and backend development servers.
-
-## Development
-
-### Prerequisites
-
-- Python 3.8+
-- Node.js 18+
-- PostgreSQL 13+
-- Docker and Docker Compose (optional)
-
-### Setup
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/yourusername/rdframework.git
-   cd rdframework
-   ```
-
-2. Create a virtual environment:
-
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\\Scripts\\activate
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   pip install -e .
-   ```
-
-4. Run tests:
-   ```bash
-   python -m pytest
-   ```
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+pip install react-tango-creator

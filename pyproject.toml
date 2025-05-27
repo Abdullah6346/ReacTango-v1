@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "react-tango-creator"
+version = "0.1.0" # Increment this for new releases
+authors = [
+  { name="Your Name", email="your.email@example.com" }, # CHANGE THIS
+]
+description = "A CLI tool to initialize projects from the ReactTangoTemplate."
+readme = "README.md"
+license = { file = "LICENSE" } # Assuming your license file is named LICENSE
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 4 - Beta", # Or 3 - Alpha, 5 - Production/Stable
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License", # If you chose MIT
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Utilities",
+]
+# No external runtime dependencies are strictly needed for this script,
+# as it uses built-in 'subprocess', 'sys', 'os', 'shutil', 'pathlib'.
+# dependencies = []
+
+[project.urls]
+"Homepage" = "https://github.com/your-username/react-tango-creator" # CHANGE THIS
+"Bug Tracker" = "https://github.com/your-username/react-tango-creator/issues" # CHANGE THIS
+"Repository" = "https://github.com/your-username/react-tango-creator" # CHANGE THIS
+
+[project.scripts]
+create-react-tango = "react_tango_creator.cli:main"
