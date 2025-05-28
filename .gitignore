@@ -87,3 +87,4 @@ cython_debug/
 
 # JetBrains IDEs
 .idea/
+.DS_Store

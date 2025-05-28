@@ -2,24 +2,19 @@ import argparse
 import subprocess
 import sys
 import os
-import shutil # For rmtree
+import shutil
 from pathlib import Path
-import questionary # Import questionary
+import questionary
 
-# Import version from __init__.py
-from . import __version__
+from . import __version__ 
 
-# The GitHub repository URL for your template
-TEMPLATE_REPO_URL = "https://github.com/Abdullah6346/ReactTangoTemplate.git"
-
-# Emojis (ensure your terminal supports UTF-8)
 EMOJI_ERROR = "❌"
 EMOJI_WARNING = "⚠️"
 EMOJI_SUCCESS = "✅"
 EMOJI_INFO = "ℹ️"
 EMOJI_CLONE = "🌀"
 EMOJI_TRASH = "🗑️"
-EMOJI_GIT = "🐙" # Octocat for Git
+EMOJI_GIT = "🐙"
 EMOJI_ROCKET = "🚀"
 EMOJI_PARTY = "🎉"
 EMOJI_SPARKLES = "✨"
@@ -32,6 +27,9 @@ EMOJI_ADD = "➕"
 EMOJI_COMMIT = "📝"
 
 
+TEMPLATE_REPO_URL = "https://github.com/Abdullah6346/ReactTangoTemplate.git"
+
+# --- Helper functions (is_git_available, run_command_verbose, run_command_quiet) remain the same ---
 def is_git_available():
     """Checks if the 'git' command is available on the system."""
     try:
@@ -75,44 +73,11 @@ def run_command_quiet(command, cwd=None):
     except Exception as e:
         print(f"{EMOJI_ERROR} An unexpected error occurred while running command: {' '.join(command)}\n{e}")
         sys.exit(1)
+# --- End of helper functions ---
 
-def main():
-    banner = f"""
-╔═══════════════════════════════════════════════════════╗
-║                 React Tango CLI                       ║
-║        TanStack Router + Django Framework             ║
-║                    v{__version__}                             ║
-╚═══════════════════════════════════════════════════════╝
-"""
-    print(banner)
 
-    parser = argparse.ArgumentParser(
-        description=f"{EMOJI_ROCKET} Create a new project from the ReactTangoTemplate."
-    )
-    parser.add_argument(
-        "project_name",
-        help="The name of the new project (and the directory to be created).",
-    )
-    parser.add_argument(
-        "--branch",
-        help="Specify a branch of the template to clone (e.g., 'main', 'develop'). Defaults to the default branch.",
-        default=None
-    )
-    git_group = parser.add_mutually_exclusive_group()
-    git_group.add_argument(
-        "--init-git",
-        action="store_true",
-        help="Force initialization of a new git repository.",
-        dest="force_init_git"
-    )
-    git_group.add_argument(
-        "--no-init-git",
-        action="store_true",
-        help="Force skipping initialization of a new git repository.",
-        dest="force_no_init_git"
-    )
-
-    args = parser.parse_args()
+def handle_create_project(args):
+    """Handles the logic for the 'create' subcommand."""
     project_name = args.project_name
     branch_to_clone = args.branch
 
@@ -146,14 +111,14 @@ def main():
     should_initialize_git = False
     git_is_present = is_git_available()
 
-    if args.force_init_git:
+    if args.force_init_git: # These come from the subparser now
         if git_is_present:
             should_initialize_git = True
             print(f"\n{EMOJI_GEAR} --init-git flag used: Forcing git initialization.")
         else:
             print(f"\n{EMOJI_WARNING} Warning: --init-git flag used, but Git command not found. Cannot initialize repository.")
             should_initialize_git = False
-    elif args.force_no_init_git:
+    elif args.force_no_init_git: # These come from the subparser now
         should_initialize_git = False
         print(f"\n{EMOJI_SKIP} --no-init-git flag used: Skipping git initialization.")
     else:
@@ -192,19 +157,86 @@ def main():
             print(f"{EMOJI_SUCCESS} Initial commit made: \"{initial_commit_message}\"")
         except Exception:
             print(f"{EMOJI_SKIP} Skipping further git operations due to previous error.")
-    elif not args.force_no_init_git:
+    elif not args.force_no_init_git: # Only print if not explicitly told not to init
         print(f"\n{EMOJI_SKIP} Skipping git repository initialization.")
 
-    print(f"\n{EMOJI_PARTY} Project setup complete! {EMOJI_ROCKET}")
+    print(f"\n{EMOJI_PARTY} Project '{project_name}' created successfully! {EMOJI_ROCKET}")
     print(f"\n{EMOJI_NEXT_STEPS} Next steps:")
     print(f"  1. cd {project_name}")
     print("  2. Follow the setup instructions in the project's README.md.")
-    print("     Typically, this involves:")
-    print("     - Running `node install.js` (or its variants like `--with-venv`)")
-    print("     - Or manually installing backend (`pip install -r requirements.txt`)")
-    print("     - And frontend (`pnpm install`) dependencies.")
-    print("  3. Then run the development server (e.g., `pnpm run dev`).")
+    # ... (rest of the next steps messages)
     print(f"\n{EMOJI_SPARKLES} Happy coding! {EMOJI_SPARKLES}")
+
+
+def main():
+    banner = f"""
+╔═══════════════════════════════════════════════════════╗
+║                 React Tango CLI                       ║
+║        TanStack Router + Django Framework             ║
+║                    v{__version__}                             ║
+╚═══════════════════════════════════════════════════════╝
+"""
+    print(banner)
+
+    # Main parser
+    parser = argparse.ArgumentParser(
+        description=f"{EMOJI_ROCKET} ReactTango CLI - Create and manage ReactTango projects.",
+        formatter_class=argparse.RawTextHelpFormatter # For better help text formatting
+    )
+    parser.add_argument(
+        '--version',
+        action='version',
+        version=f'%(prog)s {__version__}'
+    )
+
+    # Create subparsers for different commands
+    subparsers = parser.add_subparsers(dest="command", title="Available commands", help="Run 'reactango <command> --help' for more information.")
+    subparsers.required = True # Make a subcommand required
+
+    # --- Create 'create' command subparser ---
+    parser_create = subparsers.add_parser(
+        "create",
+        help="Create a new ReactTango project from the template.",
+        description="Creates a new project by cloning the ReactTangoTemplate and setting it up for you."
+    )
+    parser_create.add_argument(
+        "project_name",
+        help="The name of the new project (and the directory to be created).",
+    )
+    parser_create.add_argument(
+        "--branch",
+        help="Specify a branch of the template to clone (e.g., 'main', 'develop'). Defaults to the default branch.",
+        default=None
+    )
+    # Git initialization flags specific to the 'create' command
+    git_group_create = parser_create.add_mutually_exclusive_group()
+    git_group_create.add_argument(
+        "--init-git",
+        action="store_true",
+        help="Force initialization of a new git repository in the created project.",
+        dest="force_init_git"
+    )
+    git_group_create.add_argument(
+        "--no-init-git",
+        action="store_true",
+        help="Force skipping initialization of a new git repository in the created project.",
+        dest="force_no_init_git"
+    )
+    # Set the function to call when 'create' command is used
+    parser_create.set_defaults(func=handle_create_project)
+
+    # --- Add more subparsers here for future commands ---
+    # parser_update = subparsers.add_parser("update", help="Update something...")
+    # parser_update.set_defaults(func=handle_update_command)
+
+    args = parser.parse_args()
+
+    # Call the function associated with the chosen subparser
+    if hasattr(args, 'func'):
+        args.func(args)
+    else:
+        # This should not happen if subparsers.required = True and a default is not set
+        parser.print_help()
 
 if __name__ == "__main__":
     main()
