@@ -27,9 +27,9 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/Abdullah6346/ReacTango-v1" # <<< CHANGED (update your repo name too if it changes)
-"Bug Tracker" = "https://github.com/Abdullah6346/ReacTango-v1/issues" # <<< CHANGED
-"Repository" = "https://github.com/Abdullah6346/ReacTango-v1" # <<< CHANGED
+"Homepage" = "https://github.com/Abdullah6346/ReacTango-v1" 
+"Bug Tracker" = "https://github.com/Abdullah6346/ReacTango-v1/issues"
+"Repository" = "https://github.com/Abdullah6346/ReacTango-v1" 
 
 [project.scripts]
 reactango = "reactango_cli.cli:main" 
