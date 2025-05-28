@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "reactango"  # <<< CHANGED: New package name for PyPI
-version = "0.1.3" # Or your current version
+version = "1.0.0" # Or your current version
 authors = [
   { name="Muhammad Abdullah", email="muhmmadabdullah6346@gmail.com" },
 ]
