@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "reactango"  # <<< CHANGED: New package name for PyPI
-version = "1.0.0" # Or your current version
+version = "1.1.0" # Or your current version
 authors = [
   { name="Muhammad Abdullah", email="muhmmadabdullah6346@gmail.com" },
 ]
@@ -27,9 +27,9 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/your-username/reactango-create-app" # <<< CHANGED (update your repo name too if it changes)
-"Bug Tracker" = "https://github.com/your-username/reactango-create-app/issues" # <<< CHANGED
-"Repository" = "https://github.com/your-username/reactango-create-app" # <<< CHANGED
+"Homepage" = "https://github.com/Abdullah6346/ReacTango-v1" # <<< CHANGED (update your repo name too if it changes)
+"Bug Tracker" = "https://github.com/Abdullah6346/ReacTango-v1/issues" # <<< CHANGED
+"Repository" = "https://github.com/Abdullah6346/ReacTango-v1" # <<< CHANGED
 
 [project.scripts]
 reactango = "reactango_cli.cli:main" 
