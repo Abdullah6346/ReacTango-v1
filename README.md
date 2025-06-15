@@ -2,6 +2,8 @@
 
 <div align="center">
 
+  <img src="./assets/logo.svg" alt="Reactango Logo" width="200"/>
+
 ![React Tango Creator Logo](https://img.shields.io/badge/⚡-React%20Tango%20Creator-blue?style=for-the-badge&logo=react)
 
 [![PyPI version](https://img.shields.io/pypi/v/react-tango-creator.svg?style=flat-square)](https://pypi.org/project/react-tango-creator/)
@@ -20,7 +22,6 @@
 ## ✨ What is React Tango Creator?
 
 `reactango` is a powerful command-line tool that instantly scaffolds production-ready full-stack applications using the **ReactTangoTemplate**. It combines the best of modern frontend and backend technologies:
-
 
 Stop wasting time on boilerplate setup and start building features from day one!
 
@@ -42,20 +43,22 @@ cd my-awesome-project
 
 That's it! Your full-stack application is now ready!
 
-
 ## 🌟 Features
 
 ### 🏗️ **Instant Project Scaffolding**
+
 - Creates a complete full-stack project structure in seconds
 - No manual setup or configuration required
 - Ready-to-use development environment
 
 ### 🔄 **Clean Git History**
+
 - Automatically initializes a fresh Git repository
 - Removes template history for a clean start
 - Makes initial commit with all template files
 
 ### ⚙️ **Modern Tech Stack**
+
 - **React 18** with hooks and modern patterns
 - **TanStack Router** for type-safe routing
 - **Vite** for lightning-fast development
@@ -63,11 +66,13 @@ That's it! Your full-stack application is now ready!
 - **TypeScript** for type safety across the stack
 
 ### 🐳 **Containerized Development**
+
 - Docker Compose setup included
 - Consistent development environment
 - Easy deployment and scaling
 
 ### 🛠️ **Developer Experience**
+
 - Hot reloading for both frontend and backend
 - Pre-configured linting and formatting
 - Organized project structure
@@ -80,8 +85,6 @@ That's it! Your full-stack application is now ready!
 ```bash
 pip install reactango
 ```
-
-
 
 ## 🚀 Usage
 
@@ -108,12 +111,12 @@ reactango --help
 
 ### Command Options
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `project_name` | Name of your new project | Required |
-| `--branch` | Specific branch of the template to use | `main` |
-| `--no-git` | Skip Git repository initialization | `False` |
-| `--help` | Show help message | - |
+| Option         | Description                            | Default  |
+| -------------- | -------------------------------------- | -------- |
+| `project_name` | Name of your new project               | Required |
+| `--branch`     | Specific branch of the template to use | `main`   |
+| `--no-git`     | Skip Git repository initialization     | `False`  |
+| `--help`       | Show help message                      | -        |
 
 ## 📚 What You Get
 
