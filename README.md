@@ -2,7 +2,8 @@
 
 <div align="center">
 
-  <img src="./assets/logo.svg" alt="Reactango Logo" width="200"/>
+<img src="https://raw.githubusercontent.com/Abdullah6346/ReactTangoTemplate/main/app/welcome/logo.svg" alt="Reactango Logo" width="200"/>
+
 
 ![React Tango Creator Logo](https://img.shields.io/badge/⚡-React%20Tango%20Creator-blue?style=for-the-badge&logo=react)
 
